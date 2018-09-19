@@ -5,7 +5,7 @@ import { CITIES } from '../../mocks/cities.mock'; // importing test data
 @Injectable({
     providedIn: 'root'
 })
-export class CitiesService {
+export class CityService {
 
     getCities(): Array<City> {
         return CITIES;  // method returns an array of cities
