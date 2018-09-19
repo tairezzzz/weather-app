@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { City } from '../core/interfaces/city';
-import { CitiesService } from '../core/services/cities.service';
+import { CityService } from '../core/services/city.service';
 
 @Component({
     selector: 'app-weather',
@@ -11,9 +11,9 @@ export class WeatherComponent implements OnInit {
 
     cities: Array<City> = [];
 
-    constructor(private citiesService: CitiesService) { }
+    constructor(private cityService: CityService) { }
 
     ngOnInit() {
-        this.cities = this.citiesService.getCities();
+        this.cities = this.cityService.getCities();
     }
 }

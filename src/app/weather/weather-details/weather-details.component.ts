@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Forecast } from '../../core/interfaces/forecast';
-import { CitiesService } from '../../core/services/cities.service';
+import { CityService } from '../../core/services/city.service';
 
 @Component({
     selector: 'app-weather-details',
@@ -14,7 +14,7 @@ export class WeatherDetailsComponent implements OnInit {
     forecast: Forecast;
 
     constructor(private route: ActivatedRoute,
-                private citiesService: CitiesService) {
+                private cityService: CityService) {
     }
 
     ngOnInit() {
@@ -22,6 +22,6 @@ export class WeatherDetailsComponent implements OnInit {
     }
 
     initializeForecast(id: number) {
-        this.forecast = this.citiesService.getForecast(id);
+        this.forecast = this.cityService.getForecast(id);
     }
 }

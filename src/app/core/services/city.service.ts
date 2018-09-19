@@ -8,7 +8,7 @@ import { FORECASTS } from '../../mocks/forecasts.mock';
 @Injectable({
     providedIn: 'root'
 })
-export class CitiesService {
+export class CityService {
 
     getCities(): Array<City> {
         return CITIES;
