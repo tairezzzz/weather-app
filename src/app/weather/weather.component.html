@@ -2,19 +2,14 @@
   <div class="page-header">Weather Forecast</div>
   <div class="page-body">
     <div class="page-body__sidebar">
-      <ul class="cities-list"> <!--Added the list of cities-->
-        <li class="cities-list__item"
-          *ngFor="let city of cities; index as i"
-          (click)="onChooseCity(i)"> <!--binding an element clique to the method of the component class -->
-            {{ city.name }}
+      <ul class="cities-list">
+        <li class="cities-list__item" *ngFor="let city of cities">
+            <a [routerLink]="['details', city.id]">{{ city.name }}</a>
         </li>
       </ul>
     </div>
     <div class="page-body__details">
-      <app-weather-details
-        *ngIf="chosenCity >= 0"
-        [forecast]="cities[chosenCity].forecast">
-      </app-weather-details>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

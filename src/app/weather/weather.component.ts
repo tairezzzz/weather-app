@@ -10,18 +10,10 @@ import { CitiesService } from '../core/services/cities.service';
 export class WeatherComponent implements OnInit {
 
     cities: Array<City> = [];
-    chosenCity; // create variable for saving current (chosen) city
 
     constructor(private citiesService: CitiesService) { }
 
     ngOnInit() {
         this.cities = this.citiesService.getCities();
     }
-
-    onChooseCity(index: number): void {
-        console.log(index); // logging the index of the city in the browser console
-        this.chosenCity = index;
-    }
-
-
 }

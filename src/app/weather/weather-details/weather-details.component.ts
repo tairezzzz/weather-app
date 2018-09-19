@@ -1,17 +1,27 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Forecast } from '../../core/interfaces/forecast';
+import { CitiesService } from '../../core/services/cities.service';
 
 @Component({
-  selector: 'app-weather-details',
-  templateUrl: './weather-details.component.html',
-  styleUrls: ['./weather-details.component.scss']
+    selector: 'app-weather-details',
+    templateUrl: './weather-details.component.html',
+    styleUrls: ['./weather-details.component.scss']
 })
 export class WeatherDetailsComponent implements OnInit {
 
-  @Input() forecast;
+    forecast: Forecast;
 
-  constructor() { }
+    constructor(private route: ActivatedRoute,
+                private citiesService: CitiesService) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.route.params.subscribe(params => this.initializeForecast(+params.id));
+    }
 
+    initializeForecast(id: number) {
+        this.forecast = this.citiesService.getForecast(id);
+    }
 }
